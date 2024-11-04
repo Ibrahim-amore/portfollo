@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1b1b1b;
+            padding: 10px 20px;
+            height: 50px;
+            border-radius: 5px;
+            margin: 20px auto;
+            width: 75%;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-links li {
+            margin-left: 35px;
+            background-color: #1b1b1b;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .nav-links a {
+            color: #9c9c9c;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #2ce035;
+        }
+        .nav-links img {
+            margin-left: 25px;
+        }
+        .icon {
+            display: flex;
+            gap: 30px;
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1b1b1b;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+        }
+        .mobile-menu ul {
+            padding: 0;
+            list-style: none;
+            width: 100%;
+            text-align: center;
+        }
+        .mobile-menu li {
+            margin: 10px 0;
+        }
+        .mobile-menu a {
+            color: #9c9c9c;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            transition: color 0.3s ease;
+        }
+        .mobile-menu a:hover {
+            color: #2ce035;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                position: relative;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                background-color: #1b1b1b;
+                justify-content: center;
+                align-items: center;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                color: #2ce035;
+                text-decoration: none;
+                font-size: 24px;
+                display: block;
+                padding: 10px 0;
+              
+            }
+
+            .nav-links a:hover {
+                color: purple;
+            }
+
+            .menu-toggle {
+              display: flex; /* Make sure it is always displayed */
+              flex-direction: column;
+              cursor: pointer;
+              position: flex; /* Keep it fixed at the top-right corner */
+              top: 35px;
+              left: 35px;
+              z-index: 1000; /* Ensure it stays on top of the navigation menu */
+             }
+
+             #case p{
+                padding: 0px 30px;
+             }
+        }
+
+
+        </style>
+    </head>
+    <body>
+    <div id="home">
+        <div class="nav-container">
+            <div class="menu-toggle" id="mobile-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="./portfolio.html">Home</a></li>
+                <li><a href="./case.html">Case Studies</a></li>
+                <li><a href="./testimonial.html">Testimonial</a></li>
+                <li><a href="./recent.html">Recent Work</a></li>
+                <li><a href="./contact.html">Get In Touch</a></li>
+                <li>
+                    <div class="icon">
+                        <a href="https://github.com/ibrahim-amore" target="_blank">
+                            <img src="./images/github.png" width="27px" height="25px" alt="">
+                        </a>
+                        <a href="https://behance.net/ibrahimamore" target="_blank">
+                            <img src="./images/behance.png" width="27px" height="25px" alt="">
+                        </a>
+                        <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                            <img src="./images/linkedin-logo.png" width="27px" height="25px" alt="">
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div id="case" class="text-center my-16">
+        <h1 class="text-3xl mb-4">Case Study</h1>
+        <p class="max-w-xl mx-auto font-light">Delivering solutions to user and business problems for over 5 years. Our approach combines creativity and strategic thinking to drive impactful results.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 px-4 md:px-24">
+        <div class="bg-[#1b1b1b] p-6 rounded-lg shadow-md">
+            <h5 class="bg-yellow-100 text-yellow-700 text-center text-sm py-1 rounded-md inline-block mb-4">Edtech</h5>
+            <h2 class="text-xl mb-4 text-white">CollegeChess</h2>
+            <p class="font-light mb-4 text-gray-400">Empowering students through engaging and interactive chess programs. Our platform integrates advanced technology to enhance learning and foster critical thinking skills.</p>
+            <a href="https://themuslimconnect.co.uk/ch/index.html">
+            <button class="bg-yellow-600 text-white py-2 px-4 rounded-lg hover:bg-purple-600 transition-colors duration-300">View Case Study &gt;</button>
+           </a>
+        </div>
+        <div class="flex justify-center">
+            <img src="./images/chess2.jpg" alt="CollegeChess" class="w-full max-w-md h-80 rounded-lg shadow-md" width="400px" height="300px">
+        </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 px-4 md:px-24 mt-16">
+        <div class="flex justify-center">
+            <img src="./images/case.webp" alt="Fintech" class="w-full max-w-md h-80 object-cover rounded-lg shadow-md" width="400px" height="300px">
+        </div>
+        <div class="bg-[#1b1b1b] p-6 rounded-lg shadow-md">
+            <h5 class="bg-blue-100 text-blue-700 text-center text-sm py-1 rounded-md inline-block mb-4">Fintech</h5>
+            <h2 class="text-xl mb-4 text-white">Innovative Financial Solutions</h2>
+            <p class="font-light mb-4 text-gray-400">Transforming the financial landscape with cutting-edge technology and user-centric designs. Our fintech solutions streamline processes and enhance user experiences.</p>
+            <a href="https://themuslimconnect.co.uk/Dashboard/index.html">
+            <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-purple-600 transition-colors duration-300">View Case Study &gt;</button>
+        </a>
+        </div>
+    </div>
+
+    <footer class="mt-16">
+        <hr class="border-gray-700">
+        <p class="text-center text-gray-500 py-4">&copy; 2024 Ibrahim Amore. Built with passion.</p>
+    </footer>
+</div>
+    
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            const nav = document.getElementById('nav-links');
+            nav.classList.toggle('active');
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
+        });
+         
+    </script>
+    </body>
+    

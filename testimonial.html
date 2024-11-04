@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        #testimonial p{
+            text-align: center;
+            padding: 0px 0;
+        }
+        #testimonial h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        #testimonial p {
+            font-size: 16px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .testimonial {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+        .box {
+            background-color: #1b1b1b;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .box p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .box img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+        .box label {
+            font-size: 16px;
+            color: #2ce035;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1b1b1b;
+            padding: 10px 20px;
+            height: 50px;
+            border-radius: 5px;
+            margin: 20px auto;
+            width: 75%;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-links li {
+            margin-left: 35px;
+            background-color: #1b1b1b;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .nav-links a {
+            color: #9c9c9c;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #2ce035;
+        }
+        .nav-links img {
+            margin-left: 25px;
+        }
+        .icon {
+            display: flex;
+            gap: 30px;
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1b1b1b;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+        }
+        .mobile-menu ul {
+            padding: 0;
+            list-style: none;
+            width: 100%;
+            text-align: center;
+        }
+        .mobile-menu li {
+            margin: 10px 0;
+        }
+        .mobile-menu a {
+            color: #9c9c9c;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            transition: color 0.3s ease;
+        }
+        .mobile-menu a:hover {
+            color: #2ce035;
+        }
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                position: relative;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                background-color: #1b1b1b;
+                justify-content: center;
+                align-items: center;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                color: #2ce035;
+                text-decoration: none;
+                font-size: 24px;
+                display: block;
+                padding: 10px 0;
+                
+            }
+
+            .nav-links a:hover {
+                color: purple;
+            }
+
+          
+            .menu-toggle {
+              display: flex; /* Make sure it is always displayed */
+              flex-direction: column;
+              cursor: pointer;
+              position: flex; /* Keep it fixed at the top-right corner */
+              top: 35px;
+              left: 35px;
+              z-index: 1000; /* Ensure it stays on top of the navigation menu */
+             }
+
+             #testimonial p {
+                padding: 0 30px;
+             }
+
+             #testimonial h1 {
+                margin-top: 0;
+                font-size: 36px;
+                text-align: center;
+             }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="home">
+        <div class="nav-container">
+            <div class="menu-toggle" id="mobile-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="./portfolio.html">Home</a></li>
+                <li><a href="./case.html">Case Studies</a></li>
+                <li><a href="./testimonial.html">Testimonial</a></li>
+                <li><a href="./recent.html">Recent Work</a></li>
+                <li><a href="./contact.html">Get In Touch</a></li>
+                <li>
+                    <div class="icon">
+                        <a href="https://github.com/ibrahim-amore" target="_blank">
+                            <img src="./images/github.png" width="27px" height="25px" alt="">
+                        </a>
+                        <a href="https://behance.net/ibrahimamore" target="_blank">
+                            <img src="./images/behance.png" width="27px" height="25px" alt="">
+                        </a>
+                        <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                            <img src="./images/linkedin-logo.png" width="27px" height="25px" alt="">
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="testimonial">
+        <h1>Testimonial</h1>
+        <p>These are the reviews from my clients after getting a clean and effective job done for them.</p>
+        <div class="testimonial">
+            <div class="box">
+                <p>"From start to finish, Ibrahim-Amore demonstrated professionalism and expertise. The end result was an intuitive and powerful website that has significantly boosted our online presence."</p>
+                <img src="./images/pic2.jpeg" alt="Testimonial 1">
+                <label for="name">Mr Samson .Ol<br><span style="color: purple;">CEO Asapworkout</span></label>
+            </div>
+            <div class="box">
+                <p>"Exceeded our expectations with their outstanding web development skills. The project was delivered on time, within budget, and the quality of work was exceptional. Our e-commerce site has never been more robust and user-friendly. Thank you!"</p>
+                <img src="./images/pics1.jpeg" alt="Testimonial 2">
+                <label for="name">Mr Ariyo.DI<br><span style="color: purple;">CEO of Import Pro</span></label>
+            </div>
+            <div class="box">
+                <p>"Working with Ibrahim-Amore was an absolute pleasure! His expertise in both front-end and back-end development brought our vision to life seamlessly. The website is incredibly functional. Highly recommend!"</p>
+                <img src="./images/pics4 (1).jpeg" alt="Testimonial 3">
+                <label for="name">Mr Joshua.OA<br><span style="color: purple;">Founder of Metrolight</span></label>
+            </div>
+            <div class="box">
+                <p>"We approached Ibrahim-Amore for a complete overhaul of our outdated website. They transformed it into a modern, responsive, and fast-loading site that our customers love. Their attention to detail and dedication to the project was impressive."</p>
+                <img src="./images/pics4 (2).jpeg" alt="Testimonial 4">
+                <label for="name">Miss Oladoyin.MA<br><span style="color: purple;">CEO DoyinCakeShop</span></label>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+   document.getElementById('mobile-menu').addEventListener('click', function() {
+    const nav = document.getElementById('nav-links');
+    nav.classList.toggle('active');
+});
+
+    </script>
+</body>
+</html>
