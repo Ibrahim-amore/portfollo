@@ -1,75 +1,73 @@
+[file name]: testimonial.html
+[file content begin]
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Testimonials | Ibrahim Amore - Client Reviews</title>
+    <meta name="description" content="Client testimonials and recommendations from startups to enterprise companies across UK, Canada, and worldwide.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #2ce035;
+            --secondary: #764ba2;
+            --dark: #000;
+            --dark-gray: #1b1b1b;
+            --light-gray: #9c9c9c;
+            --white: #fff;
+        }
+        
         body {
             font-family: 'IBM Plex Mono', monospace;
-            background-color: #000;
-            color: #fff;
+            background-color: var(--dark);
+            color: var(--white);
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
-        #testimonial p{
-            text-align: center;
-            padding: 0px 0;
-        }
-        #testimonial h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        #testimonial p {
-            font-size: 16px;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .testimonial {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 20px;
         }
-        .box {
-            background-color: #1b1b1b;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        .box p {
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-        .box img {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            margin-bottom: 15px;
-            object-fit: cover;
-        }
-        .box label {
-            font-size: 16px;
-            color: #2ce035;
-        }
+
+        /* Navigation */
         .nav-container {
+            background-color: var(--dark-gray);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #1b1b1b;
-            padding: 10px 20px;
-            height: 50px;
-            border-radius: 5px;
-            margin: 20px auto;
-            width: 75%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
+
+        .logo {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
         .nav-links {
             list-style: none;
             display: flex;
@@ -77,91 +75,343 @@
             padding: 0;
             margin: 0;
         }
+
         .nav-links li {
-            margin-left: 35px;
-            background-color: #1b1b1b;
-            padding: 10px;
-            border-radius: 5px;
+            margin-left: 30px;
         }
+
         .nav-links a {
-            color: #9c9c9c;
+            color: var(--light-gray);
             text-decoration: none;
             font-size: 14px;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
+
         .nav-links a:hover {
-            color: #2ce035;
+            color: var(--primary);
         }
-        .nav-links img {
-            margin-left: 25px;
+
+        .nav-links .active a {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 5px;
         }
+
         .icon {
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
+
+        .icon a {
+            color: var(--light-gray);
+            transition: color 0.3s ease;
+        }
+
+        .icon a:hover {
+            color: var(--primary);
+        }
+
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
+            z-index: 1001;
         }
+
         .menu-toggle div {
             width: 25px;
             height: 3px;
-            background-color: #fff;
+            background-color: var(--white);
             margin: 4px;
             transition: all 0.3s ease;
         }
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            background-color: #1b1b1b;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 999;
-            transition: max-height 0.3s ease-out;
-            overflow: hidden;
-        }
-        .mobile-menu ul {
-            padding: 0;
-            list-style: none;
-            width: 100%;
+
+        /* Hero Section */
+        .hero-section {
+            padding: 150px 0 80px;
             text-align: center;
         }
-        .mobile-menu li {
+
+        .hero-section h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 40px 0;
+            border-radius: 15px;
+            margin: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Testimonials Grid */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .testimonial-card {
+            background: var(--dark-gray);
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .testimonial-rating {
+            color: #ffc107;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #ccc;
+            font-style: italic;
+            position: relative;
+        }
+
+        .testimonial-text::before {
+            content: "“";
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+
+        .author-info h4 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.2rem;
+            margin: 0 0 5px;
+        }
+
+        .author-info p {
+            color: var(--light-gray);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .author-company {
+            color: var(--primary) !important;
+            font-weight: 600;
+        }
+
+        /* Video Testimonials */
+        .video-section {
+            margin: 80px 0;
+        }
+
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background: var(--dark-gray);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover .play-button {
+            transform: scale(1.1);
+            background: var(--white);
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-info h3 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .video-info p {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(44, 224, 53, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 60px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 80px 0;
+        }
+
+        .cta-section h2 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            background: var(--primary);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #27a12e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(44, 224, 53, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-gray);
+            padding: 40px 0;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: var(--light-gray);
             margin: 10px 0;
         }
-        .mobile-menu a {
-            color: #9c9c9c;
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
             text-decoration: none;
-            font-size: 18px;
-            display: block;
-            width: 100%;
-            padding: 10px 0;
             transition: color 0.3s ease;
         }
-        .mobile-menu a:hover {
-            color: #2ce035;
+
+        .footer-links a:hover {
+            color: var(--primary);
         }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-                position: relative;
+            .nav-content {
+                padding: 15px 20px;
             }
 
             .nav-links {
                 display: none;
                 flex-direction: column;
-                width: 100%;
                 position: fixed;
                 top: 0;
                 left: 0;
+                width: 100%;
                 height: 100vh;
-                background-color: #1b1b1b;
+                background-color: var(--dark-gray);
                 justify-content: center;
                 align-items: center;
                 z-index: 999;
@@ -173,51 +423,78 @@
 
             .nav-links li {
                 margin: 20px 0;
-                width: 100%;
-                text-align: center;
             }
 
             .nav-links a {
-                color: #2ce035;
-                text-decoration: none;
                 font-size: 24px;
-                display: block;
-                padding: 10px 0;
-                
             }
 
-            .nav-links a:hover {
-                color: purple;
-            }
-
-          
             .menu-toggle {
-              display: flex; /* Make sure it is always displayed */
-              flex-direction: column;
-              cursor: pointer;
-              position: flex; /* Keep it fixed at the top-right corner */
-              top: 35px;
-              left: 35px;
-              z-index: 1000; /* Ensure it stays on top of the navigation menu */
-             }
+                display: flex;
+            }
 
-             #testimonial p {
-                padding: 0 30px;
-             }
+            .menu-toggle.active div:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
 
-             #testimonial h1 {
-                margin-top: 0;
-                font-size: 36px;
-                text-align: center;
-             }
+            .menu-toggle.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active div:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero-section {
+                padding: 120px 0 60px;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px 20px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section {
+                padding: 40px 20px;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
         }
 
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
 
+            .testimonial-card {
+                padding: 20px;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <div id="home">
-        <div class="nav-container">
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="./portfolio.html" class="logo">IA<span>MORE</span></a>
             <div class="menu-toggle" id="mobile-menu">
                 <div></div>
                 <div></div>
@@ -226,58 +503,284 @@
             <ul class="nav-links" id="nav-links">
                 <li><a href="./portfolio.html">Home</a></li>
                 <li><a href="./case.html">Case Studies</a></li>
-                <li><a href="./testimonial.html">Testimonial</a></li>
+                <li class="active"><a href="./testimonial.html">Testimonials</a></li>
                 <li><a href="./recent.html">Recent Work</a></li>
                 <li><a href="./contact.html">Get In Touch</a></li>
                 <li>
                     <div class="icon">
-                        <a href="https://github.com/ibrahim-amore" target="_blank">
-                            <img src="./images/github.png" width="27px" height="25px" alt="">
+                        <a href="https://github.com/ibrahim-amore" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://behance.net/ibrahimamore" target="_blank">
-                            <img src="./images/behance.png" width="27px" height="25px" alt="">
+                        <a href="https://behance.net/ibrahimamore" target="_blank" aria-label="Behance">
+                            <i class="fab fa-behance"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
-                            <img src="./images/linkedin-logo.png" width="27px" height="25px" alt="">
+                        <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
                 </li>
             </ul>
         </div>
-    </div>
-    <div id="testimonial">
-        <h1>Testimonial</h1>
-        <p>These are the reviews from my clients after getting a clean and effective job done for them.</p>
-        <div class="testimonial">
-            <div class="box">
-                <p>"From start to finish, Ibrahim-Amore demonstrated professionalism and expertise. The end result was an intuitive and powerful website that has significantly boosted our online presence."</p>
-                <img src="./images/pic2.jpeg" alt="Testimonial 1">
-                <label for="name">Mr Samson .Ol<br><span style="color: purple;">CEO Asapworkout</span></label>
-            </div>
-            <div class="box">
-                <p>"Exceeded our expectations with their outstanding web development skills. The project was delivered on time, within budget, and the quality of work was exceptional. Our e-commerce site has never been more robust and user-friendly. Thank you!"</p>
-                <img src="./images/pics1.jpeg" alt="Testimonial 2">
-                <label for="name">Mr Ariyo.DI<br><span style="color: purple;">CEO of Import Pro</span></label>
-            </div>
-            <div class="box">
-                <p>"Working with Ibrahim-Amore was an absolute pleasure! His expertise in both front-end and back-end development brought our vision to life seamlessly. The website is incredibly functional. Highly recommend!"</p>
-                <img src="./images/pics4 (1).jpeg" alt="Testimonial 3">
-                <label for="name">Mr Joshua.OA<br><span style="color: purple;">Founder of Metrolight</span></label>
-            </div>
-            <div class="box">
-                <p>"We approached Ibrahim-Amore for a complete overhaul of our outdated website. They transformed it into a modern, responsive, and fast-loading site that our customers love. Their attention to detail and dedication to the project was impressive."</p>
-                <img src="./images/pics4 (2).jpeg" alt="Testimonial 4">
-                <label for="name">Miss Oladoyin.MA<br><span style="color: purple;">CEO DoyinCakeShop</span></label>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section container">
+        <h1>Client Testimonials</h1>
+        <p>Trusted by startups to enterprise companies across the UK, Canada, and worldwide. Here's what clients say about working with me.</p>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="container">
+        <div class="stats-banner">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Client Retention</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.9/5</h3>
+                    <p>Average Rating</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Global Clients</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>On-Time Delivery</p>
+                </div>
             </div>
         </div>
-    </div>
-    <script>
-        
-   document.getElementById('mobile-menu').addEventListener('click', function() {
-    const nav = document.getElementById('nav-links');
-    nav.classList.toggle('active');
-});
+    </section>
 
+    <!-- Testimonials Grid -->
+    <section class="container">
+        <div class="testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-text">
+                    "Ibrahim transformed our outdated e-commerce platform into a cutting-edge solution. His architecture decisions reduced page load times by 60% and increased conversions by 35%. He's not just a developer; he's a strategic partner who understands business goals."
+                </div>
+                <div class="testimonial-author">
+                    <img src="./images/pic2.jpeg" alt="Mr Samson .Ol" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Mr Samson .Ol</h4>
+                        <p class="author-company">CEO, Asapworkout</p>
+                        <p>London, UK</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-text">
+                    "Working with Ibrahim on our fintech platform was exceptional. He delivered a PCI DSS compliant solution ahead of schedule. His expertise in microservices and real-time processing saved us months of development time. Highly recommend for enterprise projects."
+                </div>
+                <div class="testimonial-author">
+                    <img src="./images/pics1.jpeg" alt="Mr Ariyo.DI" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Mr Ariyo.DI</h4>
+                        <p class="author-company">CEO, Import Pro</p>
+                        <p>Toronto, Canada</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-text">
+                    "The healthcare platform Ibrahim built for us exceeded all expectations. His implementation of HIPAA-compliant security and real-time telemedicine features was flawless. We've received praise from both staff and patients for the system's reliability and user experience."
+                </div>
+                <div class="testimonial-author">
+                    <img src="./images/pics4 (1).jpeg" alt="Mr Joshua.OA" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Dr. Joshua.OA</h4>
+                        <p class="author-company">Founder, Metrolight Health</p>
+                        <p>Manchester, UK</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 4 -->
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-text">
+                    "As a non-technical founder, I was nervous about building our platform. Ibrahim made the process seamless with clear communication and expert guidance. Our MVP was delivered in half the expected time and has attracted significant investor interest."
+                </div>
+                <div class="testimonial-author">
+                    <img src="./images/pics4 (2).jpeg" alt="Miss Oladoyin.MA" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Miss Oladoyin.MA</h4>
+                        <p class="author-company">CEO, DoyinCakeShop</p>
+                        <p>Vancouver, Canada</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 5 -->
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-text">
+                    "We hired Ibrahim to modernize our legacy enterprise systems. His migration strategy was brilliant - zero downtime during the transition. The new microservices architecture has reduced our operational costs by 40% while improving performance."
+                </div>
+                <div class="testimonial-author">
+                    <img src="./images/client1.jpg" alt="David Chen" class="author-avatar">
+                    <div class="author-info">
+                        <h4>David Chen</h4>
+                        <p class="author-company">CTO, Global Logistics Ltd.</p>
+                        <p>Singapore</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 6 -->
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-text">
+                    "Ibrahim's expertise in real-time applications was exactly what we needed for our chat platform. He implemented WebRTC video calling and end-to-end encryption that outperforms major competitors. His code quality and documentation are exceptional."
+                </div>
+                <div class="testimonial-author">
+                    <img src="./images/client2.jpg" alt="Sarah Johnson" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <p class="author-company">Product Lead, TechStart Inc.</p>
+                        <p>San Francisco, USA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Testimonials Section -->
+    <section class="video-section container">
+        <h2 style="font-family: 'Raleway', sans-serif; font-size: 2.5rem; margin-bottom: 30px; text-align: center;">Video Testimonials</h2>
+        <div class="video-container">
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h3>Enterprise Migration Success</h3>
+                    <p>CTO discusses how Ibrahim modernized their legacy systems with zero downtime.</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h3>FinTech Platform Review</h3>
+                    <p>CEO shares how the new platform increased transaction efficiency by 50%.</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h3>Healthcare System Implementation</h3>
+                    <p>Medical director praises the HIPAA-compliant telemedicine features.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="container">
+        <div class="cta-section">
+            <h2>Ready to Build Something Amazing?</h2>
+            <p>Join 50+ satisfied clients who have transformed their businesses with custom software solutions. Let's discuss your project requirements.</p>
+            <a href="./contact.html" class="cta-button">
+                <i class="fas fa-calendar-check"></i> Schedule a Consultation
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://github.com/ibrahim-amore" target="_blank">GitHub</a>
+                <a href="https://behance.net/ibrahimamore" target="_blank">Behance</a>
+                <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197" target="_blank">LinkedIn</a>
+                <a href="./Ibrahim_Amore_Professional_Resume.pdf" target="_blank">Resume</a>
+            </div>
+            <p>&copy; 2024 Ibrahim Amore. All rights reserved.</p>
+            <p>Client satisfaction guaranteed. Available for remote positions worldwide.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            const nav = document.getElementById('nav-links');
+            const menuToggle = document.getElementById('mobile-menu');
+            nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById('nav-links');
+                const menuToggle = document.getElementById('mobile-menu');
+                nav.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        // Video testimonial placeholder interaction
+        document.querySelectorAll('.play-button').forEach(button => {
+            button.addEventListener('click', function() {
+                alert("Video testimonial would play here. In a real implementation, this would open a modal with the video.");
+            });
+        });
     </script>
 </body>
 </html>
+[file content end]

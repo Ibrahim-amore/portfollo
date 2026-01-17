@@ -3,30 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Recent Work | Ibrahim Amore - Portfolio Projects</title>
+    <meta name="description" content="Showcase of recent full-stack development projects including enterprise applications, fintech platforms, healthcare systems, and e-commerce solutions.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #2ce035;
+            --secondary: #764ba2;
+            --dark: #000;
+            --dark-gray: #1b1b1b;
+            --light-gray: #9c9c9c;
+            --white: #fff;
+        }
+        
         body {
             font-family: 'IBM Plex Mono', monospace;
-            background-color: #000;
-            color: #fff;
+            background-color: var(--dark);
+            color: var(--white);
             margin: 0;
             padding: 0;
-        }
-        h1 {
-            font-family: 'Raleway', sans-serif;
-            font-size: 2.5rem;
-            margin: 20px 0;
+            line-height: 1.6;
         }
 
-        p {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 1rem;
-            margin: 10px 0;
-            max-width: 600px;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background-color: var(--dark-gray);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links .active a {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 5px;
+        }
+
+        .icon {
+            display: flex;
+            gap: 20px;
+        }
+
+        .icon a {
+            color: var(--light-gray);
+            transition: color 0.3s ease;
+        }
+
+        .icon a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--white);
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 150px 0 80px;
             text-align: center;
+        }
+
+        .hero-section h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
         }
 
         .work-con {
@@ -44,29 +161,118 @@
             padding: 20px;
             width: 300px;
             text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        .box img {
-            border-radius: 10px;
-            height: 200px;
-            margin-bottom: 15px;
-            object-fit: cover;
-            width: 100%;
+        .box:hover {
+            transform: translateY(-5px);
         }
 
-        .box h2 {
+        .letter-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        /* Letter icon colors */
+        .xa-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .ph-icon {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .bw-icon {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .as-icon {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+
+        .es-icon {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+
+        .box h3 {
             font-size: 1.5rem;
             margin: 15px 0;
+            color: #2ce035;
         }
 
         .box p {
             font-size: 1rem;
+            text-align: left;
+            max-width: 100%;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin: 5px;
+            color: #2ce035;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid #2ce035;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: #2ce035;
+            color: #000;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .tech-tag {
+            background-color: #1b1b1b;
+            color: #9c9c9c;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
         }
 
         .more-info {
             display: none;
-            color: purple;
-            margin-top: 10px;
+            color: #fff;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #1b1b1b;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .more-info h4 {
+            color: #2ce035;
+            margin-top: 0;
+        }
+
+        .more-info ul {
+            padding-left: 20px;
+        }
+
+        .more-info li {
+            margin-bottom: 8px;
         }
 
         .button {
@@ -80,96 +286,69 @@
             padding: 10px 20px;
             transition: background-color 0.3s ease;
             text-align: center;
+            font-weight: bold;
         }
 
         .button:hover {
             background-color: #27a12e;
         }
 
-        footer {
+        .project-links {
+            margin: 15px 0;
+        }
+
+        .credentials {
+            display: block;
             font-size: 0.8rem;
-            margin: 20px 0;
+            color: #9c9c9c;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-gray);
+            padding: 40px 0;
+            margin-top: 80px;
             text-align: center;
         }
 
-        .nav-container {
+        .footer p {
+            color: var(--light-gray);
+            margin: 10px 0;
+        }
+
+        .footer-links {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #1b1b1b;
-            padding: 10px 20px;
-            height: 50px;
-            border-radius: 5px;
-            margin: 20px auto;
-            width: 75%;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
         }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            padding: 0;
-            margin: 0;
-        }
-
-        .nav-links li {
-            margin-left: 35px;
-            background-color: #1b1b1b;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .nav-links a {
-            color: #9c9c9c;
+        .footer-links a {
+            color: var(--light-gray);
             text-decoration: none;
-            font-size: 14px;
             transition: color 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: #2ce035;
+        .footer-links a:hover {
+            color: var(--primary);
         }
 
-        .nav-links img {
-            margin-left: 25px;
-        }
-
-        .icon {
-            display: flex;
-            gap: 30px;
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .menu-toggle div {
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            margin: 4px;
-            transition: all 0.3s ease;
-        }
-
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-                position: relative;
+            .nav-content {
+                padding: 15px 20px;
             }
 
             .nav-links {
                 display: none;
                 flex-direction: column;
-                width: 100%;
                 position: fixed;
                 top: 0;
                 left: 0;
+                width: 100%;
                 height: 100vh;
-                background-color: #1b1b1b;
+                background-color: var(--dark-gray);
                 justify-content: center;
                 align-items: center;
                 z-index: 999;
@@ -181,40 +360,58 @@
 
             .nav-links li {
                 margin: 20px 0;
-                width: 100%;
-                text-align: center;
             }
 
             .nav-links a {
-                color: #2ce035;
-                text-decoration: none;
                 font-size: 24px;
-                display: block;
-                padding: 10px 0;
-            }
-
-            .nav-links a:hover {
-                color: purple;
             }
 
             .menu-toggle {
-              display: flex; /* Make sure it is always displayed */
-              flex-direction: column;
-              cursor: pointer;
-              position: flex; /* Keep it fixed at the top-right corner */
-              top: 35px;
-              left: 35px;
-              z-index: 1000; /* Ensure it stays on top of the navigation menu */
-}
-            #Recent-work p{
-              padding: 0 30px;
+                display: flex;
+            }
+
+            .menu-toggle.active div:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-toggle.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active div:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero-section {
+                padding: 120px 0 60px;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-section p {
+                padding: 0 30px;
+            }
+            
+            .box {
+                width: 90%;
+                margin: 20px auto;
+            }
+            
+            .letter-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div id="home">
-        <div class="nav-container">
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="./portfolio.html" class="logo">IA<span>MORE</span></a>
             <div class="menu-toggle" id="mobile-menu">
                 <div></div>
                 <div></div>
@@ -223,67 +420,251 @@
             <ul class="nav-links" id="nav-links">
                 <li><a href="./portfolio.html">Home</a></li>
                 <li><a href="./case.html">Case Studies</a></li>
-                <li><a href="./testimonial.html">Testimonial</a></li>
-                <li><a href="./recent.html">Recent Work</a></li>
+                <li><a href="./testimonial.html">Testimonials</a></li>
+                <li class="active"><a href="./recent.html">Recent Work</a></li>
                 <li><a href="./contact.html">Get In Touch</a></li>
                 <li>
                     <div class="icon">
-                        <a href="https://github.com/ibrahim-amore" target="_blank">
-                            <img src="./images/github.png" width="27px" height="25px" alt="">
+                        <a href="https://github.com/ibrahim-amore" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://behance.net/ibrahimamore" target="_blank">
-                            <img src="./images/behance.png" width="27px" height="25px" alt="">
+                        <a href="https://behance.net/ibrahimamore" target="_blank" aria-label="Behance">
+                            <i class="fab fa-behance"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
-                            <img src="./images/linkedin-logo.png" width="27px" height="25px" alt="">
+                        <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
                 </li>
             </ul>
         </div>
-    </div>
+    </nav>
 
-    <div id="Recent-work">
-        <center>
-            <h1>Recent Work</h1>
-            <p>Delivering innovative solutions through full-stack development for over 15 years. From concept to deployment, I craft robust and scalable web applications that solve real-world problems.</p>
-        </center>
-        <div class="work-con">
-            <div class="box">
-                <img src="./images/BETAWEARS.png" alt="Recent Work Image">
-                <h2>Betawers</h2>
-                <p>Developed a seamless e-commerce platform with integrated payment solutions, enhancing user experience and increasing conversion rates.</p>
-                <button class="button" onclick="toggleMoreInfo('moreInfo1')">Learn More</button>
-                <div class="more-info" id="moreInfo1">
-                    <p>Betawers is a cutting-edge e-commerce platform offering seamless user experience and integrated payment solutions. Our development team focused on optimizing the shopping experience to boost conversion rates.</p>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero-section container">
+        <h1>Recent Work</h1>
+        <p>Delivering innovative solutions through full-stack development for over 15 years. From concept to deployment, I craft robust and scalable web applications that solve real-world problems.</p>
+    </section>
+
+    <div class="work-con">
+        <!-- XcelApp Admin System -->
+        <div class="box">
+            <div class="letter-icon xa-icon">XA</div>
+            <h3>XcelApp Admin System</h3>
+            <div class="tech-stack">
+                <span class="tech-tag">ASP.NET</span>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">SQL Server</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap</span>
             </div>
-            <div class="box">
-                <img src="./images/alphastones.png" alt="Recent Work Image">
-                <h2>Alphastones</h2>
-                <p>Designed a real-time chat application using modern web technologies, ensuring reliable and secure communication for users worldwide.</p>
-                <button class="button" onclick="toggleMoreInfo('moreInfo2')">Learn More</button>
-                <div class="more-info" id="moreInfo2">
-                    <p>Alphastones offers a state-of-the-art real-time chat application, developed with the latest web technologies. Our focus was on providing secure and reliable communication for users around the globe.</p>
-                </div>
+            <p>Architected a comprehensive admin dashboard for managing customer data, transactions, and system configurations with role-based access control.</p>
+            <div class="project-links">
+                <a href="https://xcelapp.gurugeeksroyalty.com/" target="_blank" class="project-link">Live Demo</a>
+                <span class="credentials">admin / Royalty2025</span>
+            </div>
+            <button class="button" onclick="toggleMoreInfo('moreInfo1')">My Contribution</button>
+            <div class="more-info" id="moreInfo1">
+                <h4>Senior Developer Role</h4>
+                <p>As the lead backend architect, I designed and implemented the complete ASP.NET MVC infrastructure with layered architecture following enterprise patterns. My contributions included:</p>
+                <ul>
+                    <li>Implemented secure authentication system with JWT tokens and role-based authorization</li>
+                    <li>Designed optimized SQL Server database schema with stored procedures for complex queries</li>
+                    <li>Created RESTful APIs with proper error handling and validation</li>
+                    <li>Implemented real-time dashboard with WebSocket connections for live updates</li>
+                    <li>Built comprehensive audit logging system for regulatory compliance</li>
+                    <li>Optimized database performance with indexing and query optimization</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- XcelApp Customer Portal -->
+        <div class="box">
+            <div class="letter-icon xa-icon">XC</div>
+            <h3>XcelApp Customer Portal</h3>
+            <div class="tech-stack">
+                <span class="tech-tag">ASP.NET Web Forms</span>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">jQuery</span>
+                <span class="tech-tag">AJAX</span>
+                <span class="tech-tag">CSS3</span>
+            </div>
+            <p>Developed customer-facing portal with account management, transaction history, and service request functionalities.</p>
+            <div class="project-links">
+                <a href="https://xcelapp-customer.gurugeeksroyalty.com/account.aspx" target="_blank" class="project-link">Live Portal</a>
+            </div>
+            <button class="button" onclick="toggleMoreInfo('moreInfo2')">My Contribution</button>
+            <div class="more-info" id="moreInfo2">
+                <h4>Full-Stack Development</h4>
+                <p>Led the development of the customer portal with focus on user experience and security:</p>
+                <ul>
+                    <li>Implemented secure session management and anti-CSRF tokens</li>
+                    <li>Designed responsive UI with progressive enhancement for mobile devices</li>
+                    <li>Integrated payment gateway with PCI DSS compliance measures</li>
+                    <li>Built real-time notification system using SignalR</li>
+                    <li>Created comprehensive unit test suite with 95% code coverage</li>
+                    <li>Optimized page load times through asset bundling and minification</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PureHealth UK Healthcare Platform -->
+        <div class="box">
+            <div class="letter-icon ph-icon">PH</div>
+            <h3>PureHealth UK Healthcare</h3>
+            <div class="tech-stack">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Express</span>
+                <span class="tech-tag">Redis</span>
+            </div>
+            <p>Modern healthcare platform with multiple specialized applications for patient management and medical services.</p>
+            <div class="project-links">
+                <a href="https://purehealthuk.healthcare/istall" target="_blank" class="project-link">iStall</a>
+                <a href="https://purehealthuk.healthcare/chess" target="_blank" class="project-link">Chess</a>
+                <a href="https://purehealthuk.healthcare/exodus" target="_blank" class="project-link">Exodus</a>
+                <a href="https://purehealthuk.healthcare" target="_blank" class="project-link">Main Site</a>
+            </div>
+            <button class="button" onclick="toggleMoreInfo('moreInfo3')">My Contribution</button>
+            <div class="more-info" id="moreInfo3">
+                <h4>Technical Lead & Architect</h4>
+                <p>As technical lead, I architected the entire microservices-based platform:</p>
+                <ul>
+                    <li>Designed microservices architecture with Docker containerization</li>
+                    <li>Implemented HIPAA-compliant data encryption and security protocols</li>
+                    <li>Built real-time appointment scheduling system with calendar integration</li>
+                    <li>Created patient portal with telemedicine capabilities using WebRTC</li>
+                    <li>Developed pharmacy management module with inventory tracking</li>
+                    <li>Implemented analytics dashboard with data visualization using D3.js</li>
+                    <li>Set up CI/CD pipeline with automated testing and deployment</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Betawers E-commerce -->
+        <div class="box">
+            <div class="letter-icon bw-icon">BW</div>
+            <h3>Betawers E-commerce</h3>
+            <div class="tech-stack">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Stripe API</span>
+                <span class="tech-tag">PWA</span>
+            </div>
+            <p>Developed a seamless e-commerce platform with integrated payment solutions, enhancing user experience and increasing conversion rates.</p>
+            <button class="button" onclick="toggleMoreInfo('moreInfo4')">My Contribution</button>
+            <div class="more-info" id="moreInfo4">
+                <h4>Senior Frontend Architect</h4>
+                <p>Led the frontend development with focus on performance and user experience:</p>
+                <ul>
+                    <li>Implemented Angular universal for server-side rendering (SEO optimization)</li>
+                    <li>Designed component library with reusable UI patterns</li>
+                    <li>Integrated Stripe payment gateway with 3D Secure authentication</li>
+                    <li>Built progressive web app with offline capabilities</li>
+                    <li>Optimized Core Web Vitals to achieve 95+ scores</li>
+                    <li>Implemented advanced product filtering and search algorithms</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Alphastones Chat Application -->
+        <div class="box">
+            <div class="letter-icon as-icon">AS</div>
+            <h3>Alphastones Chat</h3>
+            <div class="tech-stack">
+                <span class="tech-tag">Vue.js</span>
+                <span class="tech-tag">Socket.io</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">WebRTC</span>
+            </div>
+            <p>Real-time chat application with video calling capabilities, ensuring reliable and secure communication for users worldwide.</p>
+            <button class="button" onclick="toggleMoreInfo('moreInfo5')">My Contribution</button>
+            <div class="more-info" id="moreInfo5">
+                <h4>Real-time Systems Specialist</h4>
+                <p>Architected the real-time communication infrastructure:</p>
+                <ul>
+                    <li>Built scalable WebSocket server cluster with load balancing</li>
+                    <li>Implemented end-to-end encryption using Signal protocol</li>
+                    <li>Created video conferencing system with WebRTC and SFU architecture</li>
+                    <li>Designed message queuing system for offline message delivery</li>
+                    <li>Implemented real-time presence indicators and typing notifications</li>
+                    <li>Built media compression system for optimized file sharing</li>
+                    <li>Set up monitoring and analytics for system performance</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Additional Projects Box -->
+        <div class="box">
+            <div class="letter-icon es-icon">ES</div>
+            <h3>Enterprise Solutions</h3>
+            <div class="tech-stack">
+                <span class="tech-tag">Microservices</span>
+                <span class="tech-tag">Kubernetes</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">AWS/GCP</span>
+                <span class="tech-tag">CI/CD</span>
+            </div>
+            <p>Various enterprise-level solutions including CRM systems, inventory management, and custom business automation tools.</p>
+            <button class="button" onclick="toggleMoreInfo('moreInfo6')">My Approach</button>
+            <div class="more-info" id="moreInfo6">
+                <h4>Senior Developer Methodology</h4>
+                <p>My approach to software development as a senior developer:</p>
+                <ul>
+                    <li><strong>Architecture First:</strong> Design scalable systems with proper separation of concerns</li>
+                    <li><strong>Security by Design:</strong> Implement security at every layer of the application</li>
+                    <li><strong>Performance Optimization:</strong> Focus on load times, database optimization, and efficient algorithms</li>
+                    <li><strong>Code Quality:</strong> Enforce coding standards, code reviews, and comprehensive testing</li>
+                    <li><strong>Documentation:</strong> Maintain detailed technical and API documentation</li>
+                    <li><strong>Mentorship:</strong> Guide junior developers and conduct knowledge sharing sessions</li>
+                    <li><strong>DevOps Integration:</strong> Implement automated deployment and monitoring</li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Ibrahim Amore. Crafted with precision and passion.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://github.com/ibrahim-amore" target="_blank">GitHub</a>
+                <a href="https://behance.net/ibrahimamore" target="_blank">Behance</a>
+                <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197" target="_blank">LinkedIn</a>
+                <a href="./Ibrahim_Amore_Professional_Resume.pdf" target="_blank">Resume</a>
+            </div>
+            <p>&copy; 2024 Ibrahim Amore. Crafted with precision and passion.</p>
+            <p>6+ years of enterprise software development experience</p>
+        </div>
     </footer>
 
     <script>
+        // Mobile Menu Toggle
         document.getElementById('mobile-menu').addEventListener('click', function() {
             const nav = document.getElementById('nav-links');
+            const menuToggle = document.getElementById('mobile-menu');
             nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById('nav-links');
+                const menuToggle = document.getElementById('mobile-menu');
+                nav.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
         });
 
         function toggleMoreInfo(id) {
             var moreInfo = document.getElementById(id);
             if (moreInfo.style.display === 'none' || moreInfo.style.display === '') {
                 moreInfo.style.display = 'block';
+                // Scroll the more-info section into view
+                moreInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             } else {
                 moreInfo.style.display = 'none';
             }

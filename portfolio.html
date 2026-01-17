@@ -3,29 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Ibrahim Amore | Senior Full-Stack Developer</title>
+    <meta name="description" content="Senior Full-Stack Developer with 6+ years of experience building scalable web applications. Specializing in React, Node.js, .NET, and cloud technologies.">
+    <meta name="keywords" content="Full-Stack Developer, Senior Developer, Remote Developer, UK, Canada, React, Node.js, .NET, Microservices, AWS">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #2ce035;
+            --secondary: #764ba2;
+            --dark: #000;
+            --dark-gray: #1b1b1b;
+            --light-gray: #9c9c9c;
+            --white: #fff;
+        }
+        
         body {
             font-family: 'IBM Plex Mono', monospace;
-            background-color: #000;
-            color: #fff;
+            background-color: var(--dark);
+            color: var(--white);
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
+
+        /* Navigation */
         .nav-container {
+            background-color: var(--dark-gray);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #1b1b1b;
-            padding: 10px 20px;
-            height: 50px;
-            border-radius: 5px;
-            margin: 20px auto;
-            width: 75%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
+
+        .logo {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
         .nav-links {
             list-style: none;
             display: flex;
@@ -33,127 +68,285 @@
             padding: 0;
             margin: 0;
         }
+
         .nav-links li {
-            margin-left: 35px;
-            background-color: #1b1b1b; /* Set non-transparent background color */
-            padding: 10px; /* Add padding for spacing */
-            border-radius: 5px; /* Optional: Add rounded corners */
+            margin-left: 30px;
         }
+
         .nav-links a {
-            color: #9c9c9c;
+            color: var(--light-gray);
             text-decoration: none;
             font-size: 14px;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
+
         .nav-links a:hover {
-            color: #2ce035;
+            color: var(--primary);
         }
-        .nav-links img {
-            margin-left: 25px;
+
+        .nav-links .active a {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 5px;
         }
+
         .icon {
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
+
+        .icon a {
+            color: var(--light-gray);
+            transition: color 0.3s ease;
+        }
+
+        .icon a:hover {
+            color: var(--primary);
+        }
+
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
+            z-index: 1001;
         }
+
         .menu-toggle div {
             width: 25px;
             height: 3px;
-            background-color: #fff;
+            background-color: var(--white);
             margin: 4px;
             transition: all 0.3s ease;
         }
-        .container {
+
+        /* Hero Section */
+        .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            color: #fff;
+            gap: 50px;
+            padding: 150px 50px 100px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content .title {
+            font-size: 1.5rem;
+            color: var(--light-gray);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: #ccc;
+            max-width: 500px;
+        }
+
+        .cta-buttons {
+            display: flex;
             gap: 20px;
-            padding: 20px;
-            height: 100vh;
-            background-color: #000;
         }
-        .content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 10px;
-            margin-left: 100px;
-        }
-        #Hbutton1 {
-            background-color: rgb(12, 189, 12);
-            color: white;
-            height: 55px;
-            font-family: "IBM Plex Mono", monospace;
-            align-items: center;
-            font-style: bolder;
+
+        .btn {
+            padding: 15px 30px;
             border-radius: 5px;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            width: 400px;
-            font-size: 14px;
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            display: inline-flex;
             align-items: center;
+            gap: 10px;
         }
-        #Hbutton1:hover {
-            background-color: purple;
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--dark);
         }
-        #image1 img {
-            display: flex;
-            justify-content: center;
-            margin-top: 10%;
-            padding: 20px;
+
+        .btn-primary:hover {
+            background-color: #27a12e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(44, 224, 53, 0.2);
+        }
+
+        .profile-img {
+            width: 380px;
+            height: 380px;
             border-radius: 50%;
             object-fit: cover;
+            border: 5px solid var(--dark-gray);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.5s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 60px 20px;
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            margin: 50px auto;
+            max-width: 1200px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Clients Section */
+        .clients {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--light-gray);
+            max-width: 600px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 40px;
             align-items: center;
         }
-        .content h1 {
-            font-family: "Raleway", sans-serif;
-            font-optical-sizing: auto;
-            font-size: 48px;
-            font-style: normal;
-            font-weight: bolder;
-            margin-top: -50px;
-            margin-bottom: 0;
+
+        .client-logo {
+            filter: grayscale(1);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            max-width: 120px;
+            margin: 0 auto;
+            display: block;
         }
-        .content p {
-            font-family: "IBM Plex Mono", monospace;
-            font-weight: 100;
-            font-style: normal;
-            margin-bottom: 30px;
-            padding-right: 50px;
+
+        .client-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+            transform: scale(1.1);
         }
-        .Home-img {
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-gray);
+            padding: 40px 20px;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: var(--light-gray);
+            margin: 10px 0;
+        }
+
+        .footer-links {
             display: flex;
-            gap: 150px;
-            width: auto;
-            height: 80px;
-            margin-top: -220px;
-            margin-left: 120px;
-            justify-content: center; /* Center the "Worked with" text */
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
         }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 120px 20px 60px;
+            }
+
+            .hero-content p {
+                margin: 0 auto 40px;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .profile-img {
+                width: 300px;
+                height: 300px;
+            }
+
+            .clients-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-                position: relative;
+            .nav-content {
+                padding: 15px 20px;
             }
 
             .nav-links {
                 display: none;
                 flex-direction: column;
-                width: 100%;
                 position: fixed;
                 top: 0;
                 left: 0;
+                width: 100%;
                 height: 100vh;
-                background-color: #1b1b1b;
+                background-color: var(--dark-gray);
                 justify-content: center;
                 align-items: center;
                 z-index: 999;
@@ -165,140 +358,219 @@
 
             .nav-links li {
                 margin: 20px 0;
-                width: 100%;
-                text-align: center;
             }
 
             .nav-links a {
-                color: #2ce035;
-                text-decoration: none;
                 font-size: 24px;
-                display: block;
-                padding: 10px 0;
-               
             }
 
-            .nav-links a:hover {
-                color: purple;
-            }
-
-          
             .menu-toggle {
-              display: flex; /* Make sure it is always displayed */
-              flex-direction: column;
-              cursor: pointer;
-              position: flex; /* Keep it fixed at the top-right corner */
-              top: 35px;
-              left: 35px;
-              z-index: 1000; /* Ensure it stays on top of the navigation menu */
-             }
-            .container {
-                grid-template-columns: 1fr;
-                height: auto;
-                margin-top: 0;
+                display: flex;
             }
-            .content {
-                margin: 0;
-                align-items: center;
-                text-align: center;
+
+            .menu-toggle.active div:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
             }
-            .content h1 {
-                margin-top: 0;
-                font-size: 36px;
+
+            .menu-toggle.active div:nth-child(2) {
+                opacity: 0;
             }
-            .content p {
-                padding: 0 10px;
+
+            .menu-toggle.active div:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
             }
-            #Hbutton1 {
-                width: 80%;
-                margin: 0 auto;
+
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
-            #image1 img {
-                width: 80%;
-                max-width: 300px;
-                margin: 20px auto;
+
+            .hero-content .title {
+                font-size: 1.2rem;
             }
-            .Home-img {
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px 20px;
+                padding: 40px 20px;
+            }
+
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-buttons {
                 flex-direction: column;
-                gap: 20px;
-                margin: 0;
-                padding: 20px;
-                justify-content: center;
                 align-items: center;
             }
-            .Home-img img {
+
+            .btn {
                 width: 100%;
-                max-width: 100px;
-                height: auto;
-                margin: 0 auto;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .profile-img {
+                width: 250px;
+                height: 250px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div id="home">
-        <div class="nav-container">
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="./portfolio.html" class="logo">IA<span>MORE</span></a>
             <div class="menu-toggle" id="mobile-menu">
                 <div></div>
                 <div></div>
                 <div></div>
             </div>
             <ul class="nav-links" id="nav-links">
-                <li><a href="./portfolio.html">Home</a></li>
+                <li class="active"><a href="./portfolio.html">Home</a></li>
                 <li><a href="./case.html">Case Studies</a></li>
-                <li><a href="./testimonial.html">Testimonial</a></li>
+                <li><a href="./testimonial.html">Testimonials</a></li>
                 <li><a href="./recent.html">Recent Work</a></li>
                 <li><a href="./contact.html">Get In Touch</a></li>
                 <li>
                     <div class="icon">
-                        <a href="https://github.com/ibrahim-amore" target="_blank">
-                            <img src="./images/github.png" width="27px" height="25px" alt="">
+                        <a href="https://github.com/ibrahim-amore" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://behance.net/ibrahimamore" target="_blank">
-                            <img src="./images/behance.png" width="27px" height="25px" alt="">
+                        <a href="https://behance.net/ibrahimamore" target="_blank" aria-label="Behance">
+                            <i class="fab fa-behance"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
-                            <img src="./images/linkedin-logo.png" width="27px" height="25px" alt="">
+                        <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
                 </li>
             </ul>
         </div>
+    </nav>
 
-        <div class="container">
-            <div class="content">
-                <h1>Ibrahim Olawale Amore</h1>
-                <p>Personal characteristics: Versatility in both front-end and back-end development, Strong problem-solving skills, Continuous learning to stay updated, Adaptability to new tools, languages, and methodologies, Meticulous attention to detail in code and UI design, Collaborative spirit, fostering open communication in teams.</p>
-                <a href="./case.html">
-                    <button id="Hbutton1"><h4>Let's get started ></h4></button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ibrahim <span>Amore</span></h1>
+            <div class="title">Senior Full-Stack Developer & Tech Lead</div>
+            <p>I architect and build scalable digital solutions for global enterprises. With 6+ years of experience, I specialize in transforming complex business requirements into elegant, performant applications that drive growth and efficiency.</p>
+            <div class="cta-buttons">
+                <a href="./case.html" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> View My Work
+                </a>
+                <a href="./contact.html" class="btn btn-primary" style="background-color: transparent; color: var(--white); border: 2px solid var(--primary);">
+                    <i class="fas fa-paper-plane"></i> Hire Me
                 </a>
             </div>
-            <div id="image1">
-                <img src="./images/me.jpeg" alt="" width="380px" height="350px">
+        </div>
+        <div>
+            <img src="./images/me.jpeg" alt="Ibrahim Amore" class="profile-img">
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">6+</div>
+                <div class="stat-label">Years Experience</div>
             </div>
-            <h5>Worked with</h5>
+            <div class="stat-item">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Remote Ready</div>
+            </div>
         </div>
-      
-        <br>
-        <wbr>
-        <br>
-        <wbr>
-        <br>
-        <wbr>
-        <br>
-        
-        <div class="Home-img">
-            <img src="./images/collegechess.png" alt="">
-            <img src="./images/alphastones.png" alt="">
-            <img src="./images/al-islam.png" alt="">
-            <img src="./images/tmc.png" alt="">
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients">
+        <h2 class="section-title">Trusted By Global Companies</h2>
+        <p class="section-subtitle">I've collaborated with startups to Fortune 500 companies, delivering exceptional results across industries</p>
+        <div class="clients-grid">
+            <img src="./images/collegechess.png" alt="College Chess" class="client-logo">
+            <img src="./images/alphastones.png" alt="Alphastones" class="client-logo">
+            <img src="./images/al-islam.png" alt="Al-Islam" class="client-logo">
+            <img src="./images/tmc.png" alt="The Muslim Connect" class="client-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="client-logo" style="max-width: 150px;">
         </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div>
+            <div class="footer-links">
+                <a href="https://github.com/ibrahim-amore" target="_blank">GitHub</a>
+                <a href="https://behance.net/ibrahimamore" target="_blank">Behance</a>
+                <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197" target="_blank">LinkedIn</a>
+                <a href="./Ibrahim_Amore_Professional_Resume.pdf" target="_blank">Resume</a>
+            </div>
+            <p>&copy; 2024 Ibrahim Amore. All rights reserved.</p>
+            <p>Based in Nigeria | Available for Remote Positions Worldwide</p>
+            <p>UK Timezone Compatible | Canada Timezone Compatible</p>
+        </div>
+    </footer>
 
     <script>
+        // Mobile Menu Toggle
         document.getElementById('mobile-menu').addEventListener('click', function() {
             const nav = document.getElementById('nav-links');
+            const menuToggle = document.getElementById('mobile-menu');
             nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById('nav-links');
+                const menuToggle = document.getElementById('mobile-menu');
+                nav.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>

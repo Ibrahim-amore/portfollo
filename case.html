@@ -3,30 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Case Studies | Ibrahim Amore - Senior Developer</title>
+    <meta name="description" content="Detailed case studies showcasing complex problem-solving, architecture decisions, and measurable business impact across various industries.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        :root {
+            --primary: #2ce035;
+            --secondary: #764ba2;
+            --dark: #000;
+            --dark-gray: #1b1b1b;
+            --light-gray: #9c9c9c;
+            --white: #fff;
+        }
+        
         body {
             font-family: 'IBM Plex Mono', monospace;
-            background-color: #000;
-            color: #fff;
+            background-color: var(--dark);
+            color: var(--white);
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
         .nav-container {
+            background-color: var(--dark-gray);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #1b1b1b;
-            padding: 10px 20px;
-            height: 50px;
-            border-radius: 5px;
-            margin: 20px auto;
-            width: 75%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
+
+        .logo {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
         .nav-links {
             list-style: none;
             display: flex;
@@ -34,92 +74,261 @@
             padding: 0;
             margin: 0;
         }
+
         .nav-links li {
-            margin-left: 35px;
-            background-color: #1b1b1b;
-            padding: 10px;
-            border-radius: 5px;
+            margin-left: 30px;
         }
+
         .nav-links a {
-            color: #9c9c9c;
+            color: var(--light-gray);
             text-decoration: none;
             font-size: 14px;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
+
         .nav-links a:hover {
-            color: #2ce035;
+            color: var(--primary);
         }
-        .nav-links img {
-            margin-left: 25px;
+
+        .nav-links .active a {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 5px;
         }
+
         .icon {
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
+
+        .icon a {
+            color: var(--light-gray);
+            transition: color 0.3s ease;
+        }
+
+        .icon a:hover {
+            color: var(--primary);
+        }
+
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
+            z-index: 1001;
         }
+
         .menu-toggle div {
             width: 25px;
             height: 3px;
-            background-color: #fff;
+            background-color: var(--white);
             margin: 4px;
             transition: all 0.3s ease;
         }
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            background-color: #1b1b1b;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 999;
-            transition: max-height 0.3s ease-out;
-            overflow: hidden;
-        }
-        .mobile-menu ul {
-            padding: 0;
-            list-style: none;
-            width: 100%;
+
+        /* Hero Section */
+        .hero-section {
+            padding: 150px 0 80px;
             text-align: center;
         }
-        .mobile-menu li {
+
+        .hero-section h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Case Study Cards */
+        .case-study {
+            margin-bottom: 100px;
+            padding: 40px;
+            background: var(--dark-gray);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .case-study:hover {
+            transform: translateY(-5px);
+        }
+
+        .case-study-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .case-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .tag-edtech {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+
+        .tag-fintech {
+            background-color: rgba(33, 150, 243, 0.1);
+            color: #2196f3;
+        }
+
+        .tag-healthcare {
+            background-color: rgba(233, 30, 99, 0.1);
+            color: #e91e63;
+        }
+
+        .tag-enterprise {
+            background-color: rgba(156, 39, 176, 0.1);
+            color: #9c27b0;
+        }
+
+        .case-metrics {
+            text-align: right;
+        }
+
+        .metric {
+            margin-bottom: 10px;
+        }
+
+        .metric-value {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+        }
+
+        .case-content h2 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .case-description {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .challenge-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .challenge, .solution {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .challenge h3, .solution h3 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tech-item {
+            background: rgba(44, 224, 53, 0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        .case-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: var(--primary);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .case-button:hover {
+            background: #27a12e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(44, 224, 53, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-gray);
+            padding: 40px 0;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: var(--light-gray);
             margin: 10px 0;
         }
-        .mobile-menu a {
-            color: #9c9c9c;
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
             text-decoration: none;
-            font-size: 18px;
-            display: block;
-            width: 100%;
-            padding: 10px 0;
             transition: color 0.3s ease;
         }
-        .mobile-menu a:hover {
-            color: #2ce035;
+
+        .footer-links a:hover {
+            color: var(--primary);
         }
-        
+
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-                position: relative;
+            .nav-content {
+                padding: 15px 20px;
             }
 
             .nav-links {
                 display: none;
                 flex-direction: column;
-                width: 100%;
                 position: fixed;
                 top: 0;
                 left: 0;
+                width: 100%;
                 height: 100vh;
-                background-color: #1b1b1b;
+                background-color: var(--dark-gray);
                 justify-content: center;
                 align-items: center;
                 z-index: 999;
@@ -131,44 +340,63 @@
 
             .nav-links li {
                 margin: 20px 0;
-                width: 100%;
-                text-align: center;
             }
 
             .nav-links a {
-                color: #2ce035;
-                text-decoration: none;
                 font-size: 24px;
-                display: block;
-                padding: 10px 0;
-              
-            }
-
-            .nav-links a:hover {
-                color: purple;
             }
 
             .menu-toggle {
-              display: flex; /* Make sure it is always displayed */
-              flex-direction: column;
-              cursor: pointer;
-              position: flex; /* Keep it fixed at the top-right corner */
-              top: 35px;
-              left: 35px;
-              z-index: 1000; /* Ensure it stays on top of the navigation menu */
-             }
+                display: flex;
+            }
 
-             #case p{
-                padding: 0px 30px;
-             }
+            .menu-toggle.active div:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-toggle.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active div:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero-section {
+                padding: 120px 0 60px;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .case-study {
+                padding: 25px;
+            }
+
+            .case-study-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .case-metrics {
+                text-align: left;
+                margin-top: 20px;
+                display: flex;
+                gap: 30px;
+            }
+
+            .challenge-solution {
+                grid-template-columns: 1fr;
+            }
         }
-
-
-        </style>
-    </head>
-    <body>
-    <div id="home">
-        <div class="nav-container">
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="./portfolio.html" class="logo">IA<span>MORE</span></a>
             <div class="menu-toggle" id="mobile-menu">
                 <div></div>
                 <div></div>
@@ -176,79 +404,259 @@
             </div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="./portfolio.html">Home</a></li>
-                <li><a href="./case.html">Case Studies</a></li>
-                <li><a href="./testimonial.html">Testimonial</a></li>
+                <li class="active"><a href="./case.html">Case Studies</a></li>
+                <li><a href="./testimonial.html">Testimonials</a></li>
                 <li><a href="./recent.html">Recent Work</a></li>
                 <li><a href="./contact.html">Get In Touch</a></li>
                 <li>
                     <div class="icon">
-                        <a href="https://github.com/ibrahim-amore" target="_blank">
-                            <img src="./images/github.png" width="27px" height="25px" alt="">
+                        <a href="https://github.com/ibrahim-amore" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://behance.net/ibrahimamore" target="_blank">
-                            <img src="./images/behance.png" width="27px" height="25px" alt="">
+                        <a href="https://behance.net/ibrahimamore" target="_blank" aria-label="Behance">
+                            <i class="fab fa-behance"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
-                            <img src="./images/linkedin-logo.png" width="27px" height="25px" alt="">
+                        <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
                 </li>
             </ul>
         </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero-section container">
+        <h1>Case Studies</h1>
+        <p>Detailed analysis of complex projects showcasing architecture decisions, problem-solving approaches, and measurable business impact. Each case study demonstrates my ability to deliver scalable solutions that drive growth.</p>
+    </section>
 
+    <!-- Case Studies -->
+    <div class="container">
+        <!-- Case Study 1: College Chess -->
+        <div class="case-study">
+            <div class="case-study-header">
+                <div>
+                    <span class="case-tag tag-edtech">EdTech</span>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <div class="metric-value">40%</div>
+                            <div class="metric-label">Engagement Increase</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">30K+</div>
+                            <div class="metric-label">Active Users</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="case-content">
+                <h2>College Chess: Gamified Learning Platform</h2>
+                <p class="case-description">Transformed traditional chess education into an interactive, gamified learning experience for universities across the UK and Canada, increasing student engagement by 40%.</p>
+                
+                <div class="challenge-solution">
+                    <div class="challenge">
+                        <h3>Challenge</h3>
+                        <p>Traditional chess teaching methods failed to engage digital-native students. The platform needed to support real-time multiplayer games, progressive learning paths, and tournament management while handling concurrent connections during peak hours.</p>
+                    </div>
+                    <div class="solution">
+                        <h3>Solution</h3>
+                        <p>Architected a microservices-based platform using Node.js and React with WebSocket connections for real-time gameplay. Implemented Elo rating system, AI-powered learning recommendations, and cloud-based tournament management.</p>
+                    </div>
+                </div>
+                
+                <div class="tech-stack">
+                    <span class="tech-item">React</span>
+                    <span class="tech-item">Node.js</span>
+                    <span class="tech-item">WebSocket</span>
+                    <span class="tech-item">MongoDB</span>
+                    <span class="tech-item">AWS</span>
+                    <span class="tech-item">Redis</span>
+                </div>
+                
+                <a href="https://themuslimconnect.co.uk/ch/index.html" target="_blank" class="case-button">
+                    <i class="fas fa-external-link-alt"></i> View Live Project
+                </a>
+            </div>
+        </div>
+
+        <!-- Case Study 2: XcelApp FinTech -->
+        <div class="case-study">
+            <div class="case-study-header">
+                <div>
+                    <span class="case-tag tag-fintech">FinTech</span>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <div class="metric-value">99.9%</div>
+                            <div class="metric-label">Uptime</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">50%</div>
+                            <div class="metric-label">Transaction Speed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="case-content">
+                <h2>XcelApp: Enterprise Financial Platform</h2>
+                <p class="case-description">Built a comprehensive financial management platform serving 10,000+ SME clients across Europe with real-time transaction processing, multi-currency support, and regulatory compliance features.</p>
+                
+                <div class="challenge-solution">
+                    <div class="challenge">
+                        <h3>Challenge</h3>
+                        <p>Required PCI DSS compliance, real-time transaction processing across multiple currencies, fraud detection, and integration with 6+ banking APIs while maintaining sub-second response times under high load.</p>
+                    </div>
+                    <div class="solution">
+                        <h3>Solution</h3>
+                        <p>Implemented a distributed microservices architecture using .NET Core and React. Built real-time fraud detection with machine learning, implemented event-sourcing for audit trails, and used Kubernetes for auto-scaling during peak loads.</p>
+                    </div>
+                </div>
+                
+                <div class="tech-stack">
+                    <span class="tech-item">ASP.NET Core</span>
+                    <span class="tech-item">C#</span>
+                    <span class="tech-item">React</span>
+                    <span class="tech-item">SQL Server</span>
+                    <span class="tech-item">Kubernetes</span>
+                    <span class="tech-item">Docker</span>
+                </div>
+                
+                <a href="https://xcelapp.gurugeeksroyalty.com/" target="_blank" class="case-button">
+                    <i class="fas fa-external-link-alt"></i> View Admin Panel
+                </a>
+            </div>
+        </div>
+
+        <!-- Case Study 3: PureHealth Healthcare -->
+        <div class="case-study">
+            <div class="case-study-header">
+                <div>
+                    <span class="case-tag tag-healthcare">Healthcare</span>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <div class="metric-value">HIPAA</div>
+                            <div class="metric-label">Compliant</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">24/7</div>
+                            <div class="metric-label">Availability</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="case-content">
+                <h2>PureHealth UK: Healthcare Management System</h2>
+                <p class="case-description">Developed a HIPAA-compliant healthcare platform serving 50+ medical facilities across the UK with patient management, telemedicine, pharmacy integration, and real-time health monitoring.</p>
+                
+                <div class="challenge-solution">
+                    <div class="challenge">
+                        <h3>Challenge</h3>
+                        <p>Required strict HIPAA compliance, real-time patient data synchronization across multiple facilities, integration with medical devices, and maintaining 99.99% uptime for critical healthcare services.</p>
+                    </div>
+                    <div class="solution">
+                        <h3>Solution</h3>
+                        <p>Built a secure microservices architecture with end-to-end encryption, implemented WebRTC for telemedicine, created real-time health monitoring dashboards, and established comprehensive backup and disaster recovery protocols.</p>
+                    </div>
+                </div>
+                
+                <div class="tech-stack">
+                    <span class="tech-item">React</span>
+                    <span class="tech-item">Node.js</span>
+                    <span class="tech-item">WebRTC</span>
+                    <span class="tech-item">PostgreSQL</span>
+                    <span class="tech-item">AWS</span>
+                    <span class="tech-item">Docker</span>
+                </div>
+                
+                <a href="https://purehealthuk.healthcare" target="_blank" class="case-button">
+                    <i class="fas fa-external-link-alt"></i> View Healthcare Platform
+                </a>
+            </div>
+        </div>
+
+        <!-- Case Study 4: Enterprise Solutions -->
+        <div class="case-study">
+            <div class="case-study-header">
+                <div>
+                    <span class="case-tag tag-enterprise">Enterprise</span>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <div class="metric-value">6+</div>
+                            <div class="metric-label">Enterprise Clients</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">5M+</div>
+                            <div class="metric-label">Daily Requests</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="case-content">
+                <h2>Enterprise CRM & Inventory Systems</h2>
+                <p class="case-description">Architected and deployed custom enterprise solutions for Fortune 500 companies including inventory management, CRM systems, and business automation tools handling millions of daily transactions.</p>
+                
+                <div class="challenge-solution">
+                    <div class="challenge">
+                        <h3>Challenge</h3>
+                        <p>Legacy systems couldn't scale with business growth, lacked real-time analytics, had poor mobile experience, and required integration with 20+ third-party services while maintaining data consistency and security.</p>
+                    </div>
+                    <div class="solution">
+                        <h3>Solution</h3>
+                        <p>Modernized architecture using microservices, implemented real-time analytics dashboards with WebSocket connections, developed mobile-first progressive web apps, and created comprehensive API gateways for third-party integrations.</p>
+                    </div>
+                </div>
+                
+                <div class="tech-stack">
+                    <span class="tech-item">Microservices</span>
+                    <span class="tech-item">Kubernetes</span>
+                    <span class="tech-item">React Native</span>
+                    <span class="tech-item">GraphQL</span>
+                    <span class="tech-item">MongoDB</span>
+                    <span class="tech-item">AWS/GCP</span>
+                </div>
+                
+                <a href="./recent.html" class="case-button">
+                    <i class="fas fa-arrow-right"></i> View More Projects
+                </a>
+            </div>
+        </div>
     </div>
 
-
-    <div id="case" class="text-center my-16">
-        <h1 class="text-3xl mb-4">Case Study</h1>
-        <p class="max-w-xl mx-auto font-light">Delivering solutions to user and business problems for over 5 years. Our approach combines creativity and strategic thinking to drive impactful results.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-12 px-4 md:px-24">
-        <div class="bg-[#1b1b1b] p-6 rounded-lg shadow-md">
-            <h5 class="bg-yellow-100 text-yellow-700 text-center text-sm py-1 rounded-md inline-block mb-4">Edtech</h5>
-            <h2 class="text-xl mb-4 text-white">CollegeChess</h2>
-            <p class="font-light mb-4 text-gray-400">Empowering students through engaging and interactive chess programs. Our platform integrates advanced technology to enhance learning and foster critical thinking skills.</p>
-            <a href="https://themuslimconnect.co.uk/ch/index.html">
-            <button class="bg-yellow-600 text-white py-2 px-4 rounded-lg hover:bg-purple-600 transition-colors duration-300">View Case Study &gt;</button>
-           </a>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://github.com/ibrahim-amore" target="_blank">GitHub</a>
+                <a href="https://behance.net/ibrahimamore" target="_blank">Behance</a>
+                <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197" target="_blank">LinkedIn</a>
+                <a href="./Ibrahim_Amore_Professional_Resume.pdf" target="_blank">Resume</a>
+            </div>
+            <p>&copy; 2024 Ibrahim Amore. All rights reserved.</p>
+            <p>Available for remote positions in UK, Canada, and worldwide</p>
         </div>
-        <div class="flex justify-center">
-            <img src="./images/chess2.jpg" alt="CollegeChess" class="w-full max-w-md h-80 rounded-lg shadow-md" width="400px" height="300px">
-        </div>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-12 px-4 md:px-24 mt-16">
-        <div class="flex justify-center">
-            <img src="./images/case.webp" alt="Fintech" class="w-full max-w-md h-80 object-cover rounded-lg shadow-md" width="400px" height="300px">
-        </div>
-        <div class="bg-[#1b1b1b] p-6 rounded-lg shadow-md">
-            <h5 class="bg-blue-100 text-blue-700 text-center text-sm py-1 rounded-md inline-block mb-4">Fintech</h5>
-            <h2 class="text-xl mb-4 text-white">Innovative Financial Solutions</h2>
-            <p class="font-light mb-4 text-gray-400">Transforming the financial landscape with cutting-edge technology and user-centric designs. Our fintech solutions streamline processes and enhance user experiences.</p>
-            <a href="https://themuslimconnect.co.uk/Dashboard/index.html">
-            <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-purple-600 transition-colors duration-300">View Case Study &gt;</button>
-        </a>
-        </div>
-    </div>
-
-    <footer class="mt-16">
-        <hr class="border-gray-700">
-        <p class="text-center text-gray-500 py-4">&copy; 2024 Ibrahim Amore. Built with passion.</p>
     </footer>
-</div>
-    
+
     <script>
+        // Mobile Menu Toggle
         document.getElementById('mobile-menu').addEventListener('click', function() {
             const nav = document.getElementById('nav-links');
+            const menuToggle = document.getElementById('mobile-menu');
             nav.classList.toggle('active');
-            if (menu.style.display === "flex") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "flex";
-            }
+            menuToggle.classList.toggle('active');
         });
-         
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById('nav-links');
+                const menuToggle = document.getElementById('mobile-menu');
+                nav.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
     </script>
-    </body>
-    
+</body>
+</html>

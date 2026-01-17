@@ -1,77 +1,71 @@
-<!DOCTYPE html>
+[<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Contact | Ibrahim Amore - Get In Touch</title>
+    <meta name="description" content="Contact Ibrahim Amore for remote development positions in UK, Canada, and worldwide. Available for full-time, contract, and project-based work.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #2ce035;
+            --secondary: #764ba2;
+            --dark: #000;
+            --dark-gray: #1b1b1b;
+            --light-gray: #9c9c9c;
+            --white: #fff;
+        }
+        
         body {
             font-family: 'IBM Plex Mono', monospace;
-            background-color: #000;
-            color: #fff;
+            background-color: var(--dark);
+            color: var(--white);
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
-        #Get-in-Touch {
-    text-align: center;
-    padding: 0px 0;
-}
-#Get-in-Touch h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-#Get-in-Touch p {
-    font-size: 16px;
-    margin-bottom: 40px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.menu-toggle div {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 4px;
-    transition: all 0.3s ease;
-}
-.contact {
-    background-color: #1b1b1b;
-    border-radius: 10px;
-    padding: 30px;
-    display: inline-block;
-    text-align: left;
-}
-.contact h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-.contact p {
-    font-size: 14px;
-    margin: 5px 0;
-}
-.contact h4 {
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-footer {
-    margin-top: 20px;
-    font-size: 12px;
-    color: #9c9c9c;
-}
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
         .nav-container {
+            background-color: var(--dark-gray);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #1b1b1b;
-            padding: 10px 20px;
-            height: 50px;
-            border-radius: 5px;
-            margin: 20px auto;
-            width: 75%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
+
+        .logo {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
         .nav-links {
             list-style: none;
             display: flex;
@@ -79,91 +73,361 @@ footer {
             padding: 0;
             margin: 0;
         }
+
         .nav-links li {
-            margin-left: 35px;
-            background-color: #1b1b1b;
-            padding: 10px;
-            border-radius: 5px;
+            margin-left: 30px;
         }
+
         .nav-links a {
-            color: #9c9c9c;
+            color: var(--light-gray);
             text-decoration: none;
             font-size: 14px;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
+
         .nav-links a:hover {
-            color: #2ce035;
+            color: var(--primary);
         }
-        .nav-links img {
-            margin-left: 25px;
+
+        .nav-links .active a {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 5px;
         }
+
         .icon {
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
+
+        .icon a {
+            color: var(--light-gray);
+            transition: color 0.3s ease;
+        }
+
+        .icon a:hover {
+            color: var(--primary);
+        }
+
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
+            z-index: 1001;
         }
+
         .menu-toggle div {
             width: 25px;
             height: 3px;
-            background-color: #fff;
+            background-color: var(--white);
             margin: 4px;
             transition: all 0.3s ease;
         }
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            background-color: #1b1b1b;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 999;
-            transition: max-height 0.3s ease-out;
-            overflow: hidden;
-        }
-        .mobile-menu ul {
-            padding: 0;
-            list-style: none;
-            width: 100%;
+
+        /* Hero Section */
+        .hero-section {
+            padding: 150px 0 80px;
             text-align: center;
         }
-        .mobile-menu li {
-            margin: 10px 0;
+
+        .hero-section h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
         }
-        .mobile-menu a {
-            color: #9c9c9c;
-            text-decoration: none;
-            font-size: 18px;
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Contact Content */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 60px 0 100px;
+        }
+
+        .contact-info {
+            background: var(--dark-gray);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-info h2 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .contact-detail {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-detail:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .contact-label {
             display: block;
-            width: 100%;
-            padding: 10px 0;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-value {
+            font-size: 1.2rem;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-value a {
+            color: var(--white);
+            text-decoration: none;
             transition: color 0.3s ease;
         }
-        .mobile-menu a:hover {
-            color: #2ce035;
+
+        .contact-value a:hover {
+            color: var(--primary);
         }
+
+        .contact-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            width: 30px;
+        }
+
+        .availability {
+            background: rgba(44, 224, 53, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .availability h3 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .availability p {
+            color: #ccc;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background: var(--dark-gray);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-form-container h2 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--light-gray);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: var(--white);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-control::placeholder {
+            color: var(--light-gray);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%239c9c9c' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 18px 40px;
+            border-radius: 5px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #27a12e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(44, 224, 53, 0.2);
+        }
+
+        /* Timezone Section */
+        .timezone-section {
+            margin: 80px 0;
+            text-align: center;
+        }
+
+        .timezone-section h2 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .timezone-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .timezone-card {
+            background: var(--dark-gray);
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timezone-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .timezone-card.active {
+            border-color: var(--primary);
+            background: rgba(44, 224, 53, 0.05);
+        }
+
+        .timezone-card h3 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .timezone-card p {
+            color: var(--light-gray);
+            margin: 5px 0;
+        }
+
+        .time-flag {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-gray);
+            padding: 40px 0;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: var(--light-gray);
+            margin: 10px 0;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .timezone-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-                position: relative;
+            .nav-content {
+                padding: 15px 20px;
             }
 
             .nav-links {
                 display: none;
                 flex-direction: column;
-                width: 100%;
                 position: fixed;
                 top: 0;
                 left: 0;
+                width: 100%;
                 height: 100vh;
-                background-color: #1b1b1b;
+                background-color: var(--dark-gray);
                 justify-content: center;
                 align-items: center;
                 z-index: 999;
@@ -175,46 +439,70 @@ footer {
 
             .nav-links li {
                 margin: 20px 0;
-                width: 100%;
-                text-align: center;
             }
 
             .nav-links a {
-                color: #2ce035;
-                text-decoration: none;
                 font-size: 24px;
-                display: block;
-                padding: 10px 0;
-            }
-
-            .nav-links a:hover {
-                color: purple;
             }
 
             .menu-toggle {
-              display: flex; /* Make sure it is always displayed */
-              flex-direction: column;
-              cursor: pointer;
-              position: flex; /* Keep it fixed at the top-right corner */
-              top: 35px;
-              left: 35px;
-              z-index: 1000; /* Ensure it stays on top of the navigation menu */
-             }
-             #Get-in-Touch h1 {
-                margin-top: 0;
-                font-size: 36px;
-            }
-            #Get-in-Touch p {
-                padding: 0 30px;
+                display: flex;
             }
 
+            .menu-toggle.active div:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-toggle.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active div:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero-section {
+                padding: 120px 0 60px;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-info, .contact-form-container {
+                padding: 25px;
+            }
+
+            .timezone-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .timezone-section h2 {
+                font-size: 2rem;
+            }
         }
 
-        </style>
-    </head>
-    <body>
-    <div id="home">
-        <div class="nav-container">
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .contact-value {
+                font-size: 1rem;
+            }
+
+            .submit-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="./portfolio.html" class="logo">IA<span>MORE</span></a>
             <div class="menu-toggle" id="mobile-menu">
                 <div></div>
                 <div></div>
@@ -223,57 +511,235 @@ footer {
             <ul class="nav-links" id="nav-links">
                 <li><a href="./portfolio.html">Home</a></li>
                 <li><a href="./case.html">Case Studies</a></li>
-                <li><a href="./testimonial.html">Testimonial</a></li>
+                <li><a href="./testimonial.html">Testimonials</a></li>
                 <li><a href="./recent.html">Recent Work</a></li>
-                <li><a href="./contact.html">Get In Touch</a></li>
+                <li class="active"><a href="./contact.html">Get In Touch</a></li>
                 <li>
                     <div class="icon">
-                        <a href="https://github.com/ibrahim-amore" target="_blank">
-                            <img src="./images/github.png" width="27px" height="25px" alt="">
+                        <a href="https://github.com/ibrahim-amore" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://behance.net/ibrahimamore" target="_blank">
-                            <img src="./images/behance.png" width="27px" height="25px" alt="">
+                        <a href="https://behance.net/ibrahimamore" target="_blank" aria-label="Behance">
+                            <i class="fab fa-behance"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
-                            <img src="./images/linkedin-logo.png" width="27px" height="25px" alt="">
+                        <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
                 </li>
             </ul>
         </div>
+    </nav>
 
-    </div>
-
-    <div id="Get-in-Touch">
+    <!-- Hero Section -->
+    <section class="hero-section container">
         <h1>Get In Touch</h1>
-        <p>With over 5 years of experience in full-stack development, I specialize in HTML, CSS, Tailwind, JavaScript, TypeScript, PHP, Python, C#, ReactJS, MongoDB, SQL, and more. Let's discuss how we can work together to build innovative and scalable solutions.</p>
-        <div class="contact">
-            <h2>MY INFORMATION</h2>
-            <p>Email address</p>
-            <h4>ibrahimamore@gmail.com</h4>
-            <hr>
-            <p>Phone number</p>
-            <h4>09022943734, 09110131076</h4>
-            <hr>
-            <p>WhatsApp number</p>
-            <h4>+447831574943</h4>
-            <footer>
-                <p>&copy; 2024 Ibrahim Amore. Made with love.</p>
-            </footer>
+        <p>With 6+ years of full-stack development experience, I specialize in building scalable applications for global enterprises. Available for remote positions in the UK, Canada, and worldwide. Let's discuss how I can contribute to your team.</p>
+    </section>
+
+    <!-- Contact Content -->
+    <div class="container">
+        <div class="contact-content">
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2>CONTACT INFORMATION</h2>
+                
+                <div class="contact-detail">
+                    <span class="contact-label">Email Address</span>
+                    <div class="contact-value">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <a href="mailto:ibrahimamore@gmail.com">ibrahimamore@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <span class="contact-label">Primary Phone</span>
+                    <div class="contact-value">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <a href="tel:+2349022943734">+234 902 294 3734</a>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <span class="contact-label">WhatsApp (International)</span>
+                    <div class="contact-value">
+                        <i class="fab fa-whatsapp contact-icon"></i>
+                        <a href="https://wa.me/447831574943" target="_blank">+44 7831 574943</a>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <span class="contact-label">Location</span>
+                    <div class="contact-value">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span>Lagos, Nigeria (Remote)</span>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <span class="contact-label">LinkedIn Profile</span>
+                    <div class="contact-value">
+                        <i class="fab fa-linkedin contact-icon"></i>
+                        <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197" target="_blank">linkedin.com/in/alphastones-amore</a>
+                    </div>
+                </div>
+
+                <div class="availability">
+                    <h3>Availability Status</h3>
+                    <p><strong>Currently Available:</strong> Open to full-time remote positions, contract work, and project-based engagements.</p>
+                    <p><strong>Notice Period:</strong> Immediate start available for the right opportunity.</p>
+                    <p><strong>Timezone Flexibility:</strong> Comfortable working across UK, European, North American, and Australian timezones.</p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <h2>SEND A MESSAGE</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Full Name *</label>
+                        <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address *</label>
+                        <input type="email" id="email" class="form-control" placeholder="you@company.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="company">Company</label>
+                        <input type="text" id="company" class="form-control" placeholder="Your Company">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="role">Your Role</label>
+                        <select id="role" class="form-control form-select">
+                            <option value="">Select Your Role</option>
+                            <option value="cto">CTO / Technical Lead</option>
+                            <option value="hiring_manager">Hiring Manager</option>
+                            <option value="recruiter">Recruiter</option>
+                            <option value="founder">Founder / CEO</option>
+                            <option value="project_manager">Project Manager</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="interest">Interest Type *</label>
+                        <select id="interest" class="form-control form-select" required>
+                            <option value="">Select Interest</option>
+                            <option value="full_time">Full-Time Remote Position</option>
+                            <option value="contract">Contract Work</option>
+                            <option value="project">Project-Based Work</option>
+                            <option value="consultation">Technical Consultation</option>
+                            <option value="other">Other Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="message">Project Details / Message *</label>
+                        <textarea id="message" class="form-control" placeholder="Tell me about your project, team, timeline, and requirements..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
-    
+
+    <!-- Timezone Compatibility -->
+    <section class="timezone-section container">
+        <h2>Timezone Compatibility</h2>
+        <p>I'm experienced in working with distributed teams across different timezones. My flexible schedule allows seamless collaboration with teams worldwide.</p>
+        
+        <div class="timezone-cards">
+            <div class="timezone-card active">
+                <div class="time-flag">🇬🇧</div>
+                <h3>United Kingdom</h3>
+                <p><strong>Timezone:</strong> GMT / BST</p>
+                <p><strong>Overlap:</strong> Full Day</p>
+                <p><strong>Experience:</strong> 10+ UK clients</p>
+            </div>
+            
+            <div class="timezone-card">
+                <div class="time-flag">🇨🇦</div>
+                <h3>Canada</h3>
+                <p><strong>Timezone:</strong> EST / PST</p>
+                <p><strong>Overlap:</strong> 6+ hours daily</p>
+                <p><strong>Experience:</strong> 5+ Canadian clients</p>
+            </div>
+            
+            <div class="timezone-card">
+                <div class="time-flag">🇺🇸</div>
+                <h3>United States</h3>
+                <p><strong>Timezone:</strong> EST to PST</p>
+                <p><strong>Overlap:</strong> 4-7 hours daily</p>
+                <p><strong>Experience:</strong> 6+ US clients</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://github.com/ibrahim-amore" target="_blank">GitHub</a>
+                <a href="https://behance.net/ibrahimamore" target="_blank">Behance</a>
+                <a href="https://www.linkedin.com/in/alphastones-amore-2a0067197" target="_blank">LinkedIn</a>
+                <a href="./Ibrahim_Amore_Professional_Resume.pdf" target="_blank">Resume</a>
+            </div>
+            <p>&copy; 2024 Ibrahim Amore. All rights reserved.</p>
+            <p>Available for immediate remote work in UK, Canada, USA, and worldwide</p>
+        </div>
+    </footer>
+
     <script>
+        // Mobile Menu Toggle
         document.getElementById('mobile-menu').addEventListener('click', function() {
             const nav = document.getElementById('nav-links');
+            const menuToggle = document.getElementById('mobile-menu');
             nav.classList.toggle('active');
-            if (menu.style.display === "flex") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "flex";
-            }
+            menuToggle.classList.toggle('active');
         });
-         
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById('nav-links');
+                const menuToggle = document.getElementById('mobile-menu');
+                nav.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const interest = document.getElementById('interest').value;
+            
+            // In a real implementation, this would send to a backend
+            // For now, show a success message
+            alert(`Thank you ${name}! Your message has been sent successfully. I'll respond to ${email} within 24 hours regarding ${interest}.`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Timezone card interaction
+        document.querySelectorAll('.timezone-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.timezone-card').forEach(c => {
+                    c.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
     </script>
-    </body>
-    
+</body>
+</html>
